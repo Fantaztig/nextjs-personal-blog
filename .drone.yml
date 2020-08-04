@@ -7,3 +7,11 @@ steps:
   commands:
   - npm install
   - npm test
+  
+steps:
+- name: export
+  image: node
+  commands:
+  - npm install
+  - next build
+  - next export
