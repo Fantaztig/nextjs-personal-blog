@@ -13,5 +13,4 @@ steps:
   image: node
   commands:
   - npm install
-  - next build
-  - next export
+  - npm run build
