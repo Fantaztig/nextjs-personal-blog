@@ -1,3 +1,5 @@
+[![Build Status](https://drone.ruuk.io/api/badges/Fantaztig/nextjs-personal-blog/status.svg)](https://drone.ruuk.io/Fantaztig/nextjs-personal-blog)
+
 <p align="center">
   <a href="https://www.nextjs.org/">
     <img src="public/static/icons/nextjs-black-logo.svg" width="80" height="28">
