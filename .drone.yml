@@ -22,3 +22,6 @@ deploy:
   user: root
   delete: true
   secrets: [ rsync_key ]
+  when:
+    event: [ push ] ## Would run only on a push to master
+    branch: [ master ] ## Only the master branch can be deployed to production
