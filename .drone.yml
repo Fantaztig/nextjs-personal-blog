@@ -7,10 +7,21 @@ steps:
   commands:
   - npm install
   - npm test
-  
-steps:
 - name: export
   image: node
   commands:
   - npm install
   - npm run build
+  - npm run export
+deploy:
+  image: drillster/drone-rsync
+  hosts: [ "ruuk.io" ]
+  source: ./out/*
+  target: ~/ruuk.io
+  recursive: true
+  user: root
+  delete: true
+  secrets: [ rsync_key ]
+  when:
+    event: [ push ] ## Would run only on a push to master
+    branch: [ master ] ## Only the master branch can be deployed to production
