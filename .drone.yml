@@ -15,12 +15,18 @@ steps:
   - npm run export
 - name: deploy
   image: drillster/drone-rsync
-  hosts: [ "ruuk.io" ]
-  source: ./out/*
-  target: ~/ruuk.io
-  recursive: true
-  user: root
-  delete: true
-  secrets: [ rsync_key ]
+  environment:
+    RSYNC_KEY:
+      from_secret: rsync_key
+  settings:
+
+    hosts: 
+      - ruuk.io
+    source: ./out
+    target: ~/ruuk.io
+    recursive: true
+    user: root
+    delete: true
+    secrets: [ rsync_key ]
   when:
     branch: [ master ] ## Only the master branch can be deployed to production
