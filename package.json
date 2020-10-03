@@ -11,7 +11,9 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "run-ci": "npm install && npm test && npm run build && npm run export"
+    "run-ci": "npm install && npm test && npm run build && npm run export",
+    "format": "prettier --write \"{pages,components,styles,translations,__tests__}/**/*.{js,jsx,json,ts,tsx}\"",
+    "format:check": "prettier --check \"{pages,components,styles,translations,__tests__}/**/*.{js,jsx,json,ts,tsx}\""
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3",

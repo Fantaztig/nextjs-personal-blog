@@ -1,9 +1,9 @@
-import matter from 'gray-matter'
-import Layout from '../components/Layout'
-import BlogList from '../components/BlogList'
-import orderBy from "lodash/orderBy"
+import matter from "gray-matter";
+import Layout from "../components/Layout";
+import BlogList from "../components/BlogList";
+import orderBy from "lodash/orderBy";
 
-const Index = props => {
+const Index = (props) => {
   return (
     <Layout
       pathname="/"
@@ -11,39 +11,41 @@ const Index = props => {
       siteDescription={props.description}
     >
       <section>
-        <BlogList allBlogs={orderBy(props.allBlogs,"frontmatter.date", "desc")} />
+        <BlogList
+          allBlogs={orderBy(props.allBlogs, "frontmatter.date", "desc")}
+        />
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 export async function getStaticProps() {
-  const siteConfig = await import(`../data/config.json`)
+  const siteConfig = await import(`../data/config.json`);
   //get posts & context from folder
-  const posts = (context => {
-    const keys = context.keys()
-    const values = keys.map(context)
+  const posts = ((context) => {
+    const keys = context.keys();
+    const values = keys.map(context);
 
     const data = keys.map((key, index) => {
       // Create slug from filename
       const slug = key
-        .replace(/^.*[\\\/]/, '')
-        .split('.')
+        .replace(/^.*[\\\/]/, "")
+        .split(".")
         .slice(0, -1)
-        .join('.')
-      const value = values[index]
+        .join(".");
+      const value = values[index];
       // Parse yaml metadata & markdownbody in document
-      const document = matter(value.default)
+      const document = matter(value.default);
       return {
         frontmatter: document.data,
         markdownBody: document.content,
         slug,
-      }
-    })
-    return data
-  })(require.context('../posts', true, /\.md$/))
+      };
+    });
+    return data;
+  })(require.context("../posts", true, /\.md$/));
 
   return {
     props: {
@@ -51,5 +53,5 @@ export async function getStaticProps() {
       title: siteConfig.default.title,
       description: siteConfig.default.description,
     },
-  }
+  };
 }
