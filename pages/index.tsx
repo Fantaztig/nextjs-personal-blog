@@ -1,7 +1,8 @@
-import matter from "gray-matter";
+import * as matter from "gray-matter";
 import Layout from "../components/Layout";
 import BlogList from "../components/BlogList";
 import orderBy from "lodash/orderBy";
+import * as fs from "fs";
 
 const Index = (props) => {
   return (
@@ -24,28 +25,23 @@ export default Index;
 export async function getStaticProps() {
   const siteConfig = await import(`../data/config.json`);
   //get posts & context from folder
-  const posts = ((context) => {
-    const keys = context.keys();
-    const values = keys.map(context);
+  const blogPostFolder = "./posts";
 
-    const data = keys.map((key, index) => {
-      // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, "")
-        .split(".")
-        .slice(0, -1)
-        .join(".");
-      const value = values[index];
-      // Parse yaml metadata & markdownbody in document
-      const document = matter(value.default);
-      return {
-        frontmatter: document.data,
-        markdownBody: document.content,
-        slug,
-      };
-    });
-    return data;
-  })(require.context("../posts", true, /\.md$/));
+  const mdFiles = fs.readdirSync(blogPostFolder);
+
+  const posts = mdFiles.map((file) => {
+    const grayMatter = matter.read(`${blogPostFolder}/${file}`);
+    const slug = file
+      .replace(/^.*[\\\/]/, "")
+      .split(".")
+      .slice(0, -1)
+      .join(".");
+    return {
+      frontmatter: grayMatter.data,
+      markdownBody: grayMatter.content,
+      slug: slug,
+    };
+  });
 
   return {
     props: {
