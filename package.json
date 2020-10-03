@@ -1,10 +1,10 @@
 {
-  "name": "brevifolia-nextjs",
+  "name": "nextjs-personal-blog",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Next.js",
   "license": "MIT",
   "version": "0.1.0",
-  "author": "kendallstrautman",
+  "author": "Fantaztig",
   "scripts": {
     "dev": "next",
     "develop": "npm run dev",
@@ -38,6 +38,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kendallstrautman/brevifolia-nextjs"
+    "url": "https://github.com/Fantaztig/nextjs-personal-blog"
   }
 }
