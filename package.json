@@ -10,11 +10,12 @@
     "develop": "npm run dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "run-ci": "npm install && npm test && npm run build && npm run export"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3",
-    "autoprefixer": "^10",
+    "autoprefixer": "^9",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
     "next": "^9.5.3",
