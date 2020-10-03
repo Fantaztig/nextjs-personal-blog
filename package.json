@@ -1,43 +1,44 @@
 {
-  "name": "brevifolia-nextjs",
+  "name": "nextjs-personal-blog",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Next.js",
   "license": "MIT",
   "version": "0.1.0",
-  "author": "kendallstrautman",
+  "author": "Fantaztig",
   "scripts": {
     "dev": "next",
-    "develop": "yarn dev",
+    "develop": "npm run dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "run-ci": "npm install && npm test && npm run build && npm run export"
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^2.2.0",
-    "autoprefixer": "^9.8.0",
+    "@fullhuman/postcss-purgecss": "^3",
+    "autoprefixer": "^9",
     "gray-matter": "^4.0.2",
-    "lodash": "^4.17.19",
-    "next": "^9.3.3",
+    "lodash": "^4.17.20",
+    "next": "^9.5.3",
     "node-glob": "^1.2.0",
     "postcss-import": "^12.0.1",
     "raw-loader": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
-    "tailwindcss": "^1.4.6",
-    "webpack": "^4.42.1"
+    "tailwindcss": "^1.8.10",
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
-    "@types/node": "^14.0.4",
-    "@types/react": "^16.9.35",
-    "prettier": "^1.18.2",
-    "typescript": "^3.9.3"
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.50",
+    "prettier": "^2",
+    "typescript": "^4"
   },
   "keywords": [
     "next"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kendallstrautman/brevifolia-nextjs"
+    "url": "https://github.com/Fantaztig/nextjs-personal-blog"
   }
 }
