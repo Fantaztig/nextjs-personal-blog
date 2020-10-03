@@ -6,7 +6,7 @@ export default function Header(props) {
       <nav
         role="navigation"
         aria-label="main navigation"
-        className="flex md:justify-between justify-start flex-row md:flex-col h-full border-r-2 border-gray-200 bg-gray-100"
+        className="flex md:justify-between justify-start flex-row md:flex-col h-full border-r-2 border-ruuk-gray bg-ruuk-gray-200"
       >
         <Link href="/">
           <h1 className="text-3xl p-2 text-center">{props.siteTitle}</h1>

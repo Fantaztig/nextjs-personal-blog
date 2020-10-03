@@ -11,7 +11,7 @@ const Index = (props) => {
       siteTitle={props.title}
       siteDescription={props.description}
     >
-      <section>
+      <section className="h-full">
         <BlogList
           allBlogs={orderBy(props.allBlogs, "frontmatter.date", "desc")}
         />
