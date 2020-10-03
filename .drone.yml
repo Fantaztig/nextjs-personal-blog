@@ -6,6 +6,7 @@ steps:
   image: node
   commands:
   - npm install
+  - npm run format:check
   - npm test
 - name: export
   image: node
