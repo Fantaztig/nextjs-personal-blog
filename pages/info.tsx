@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import renderers from "../src/StyledRenderers";
 
 export default function Info({ frontmatter, markdownBody, title }) {
   return (
@@ -9,8 +10,8 @@ export default function Info({ frontmatter, markdownBody, title }) {
       bgColor={frontmatter.background_color}
       siteTitle={title}
     >
-      <section className="info_blurb">
-        <ReactMarkdown source={markdownBody} />
+      <section className="p-4">
+        <ReactMarkdown source={markdownBody} renderers={renderers} />
       </section>
     </Layout>
   );

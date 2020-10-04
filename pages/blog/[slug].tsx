@@ -5,6 +5,7 @@ const glob = require("glob");
 
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import renderers from "../../src/StyledRenderers";
 
 export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
   function reformatDate(fullDate) {
@@ -30,29 +31,31 @@ export default function BlogTemplate({ frontmatter, markdownBody, siteTitle }) {
         {frontmatter.hero_image && (
           <figure className="w-full">
             <img
-              className="w-full"
+              className="w-full h-64 object-cover"
               src={frontmatter.hero_image}
               alt={`${frontmatter.title}`}
             />
           </figure>
         )}
-        <div className="blog__info">
-          <h1>{frontmatter.title}</h1>
-          <h3>{reformatDate(frontmatter.date)}</h3>
+        <div className="p-4">
+          <span className="text-sm font-light">
+            {reformatDate(frontmatter.date)}
+          </span>
+          <h1 className="text-3xl font-bold mb-2">{frontmatter.title}</h1>
+          <div className="font-light mb-4 pl-2">
+            <ReactMarkdown source={markdownBody} renderers={renderers} />
+          </div>
+          <p className="font-light text-sm justify-start">
+            Tags:
+            {frontmatter.tags?.split(",").map((tag) => {
+              return (
+                <Link key={tag} href={`/tags/[slug]`} as={`/tags/${tag}`}>
+                  <a className="ml-2">[{tag}]</a>
+                </Link>
+              );
+            })}
+          </p>
         </div>
-        <div className="blog__body">
-          <ReactMarkdown source={markdownBody} />
-        </div>
-        <h3 className="blog__footer justify-start">
-          Tags:{" "}
-          {frontmatter.tags?.split(",").map((tag) => {
-            return (
-              <Link key={tag} href={`/tags/[slug]`} as={`/tags/${tag}`}>
-                <a className={"ml-2"}>[{tag}]</a>
-              </Link>
-            );
-          })}
-        </h3>
       </article>
     </Layout>
   );

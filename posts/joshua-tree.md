@@ -1,7 +1,7 @@
 ---
 author: Grace Hopper
 date: '2019-07-09T16:03:44.000Z'
-hero_image: ../static/johannes-andersson-joshua-tree.jpg
+hero_image: /static/johannes-andersson-joshua-tree.jpg
 title: An otherworldly desert
 tags: "benis"
 ---
