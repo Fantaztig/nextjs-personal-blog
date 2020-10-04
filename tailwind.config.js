@@ -1,7 +1,14 @@
 module.exports = {
-  purge: [
-    './src/**/*.jsx'
-  ],
+  purge: {
+    content: [
+      './pages/**/*.{js,jsx,ts,tsx}',
+      './components/**/*.{js,jsx,ts,tsx}',
+    ],
+    options: {
+      whitelistPatterns: [/.*fa.*/],
+      defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [],
+    }
+  },
   theme: {
     fontFamily: {
       mono: ['Fira Code', 'monospace'],

@@ -11,13 +11,11 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "run-ci": "npm install && npm run format:check && npm test && npm run build && npm run export",
+    "run-ci": "npm install && npm run format:check && npm test && rimraf ./.next/static && npm run build && npm run export",
     "format": "prettier --write \"{pages,components,styles,translations,__tests__}/**/*.{js,jsx,json,ts,tsx}\"",
     "format:check": "prettier --check \"{pages,components,styles,translations,__tests__}/**/*.{js,jsx,json,ts,tsx}\""
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^3",
-    "autoprefixer": "^9",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
     "next": "^9.5.3",
@@ -33,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.50",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2",
     "typescript": "^4"
   },
