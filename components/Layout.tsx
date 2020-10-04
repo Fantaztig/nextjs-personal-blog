@@ -9,7 +9,7 @@ export default function Layout(props) {
         siteDescription={props.siteDescription}
       />
       <Header siteTitle={props.siteTitle} />
-      <div className="w-full">{props.children}</div>
+      <div className="w-full overflow-auto">{props.children}</div>
     </section>
   );
 }
