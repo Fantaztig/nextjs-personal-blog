@@ -42,7 +42,7 @@ const BlogList = ({ allBlogs }) => {
                         <h2 className="font-semibold">
                           {post.frontmatter.title}
                         </h2>
-                          <ReactMarkdown source={post.frontmatter.summary} />
+                        <ReactMarkdown source={post.frontmatter.summary} />
                       </div>
                       <span>{reformatDate(post.frontmatter.date)}</span>
                     </div>
