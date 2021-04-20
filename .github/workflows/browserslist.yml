@@ -20,5 +20,6 @@ jobs:
     - uses: peter-evans/create-pull-request@v3
       with:
         title: Apply browserslist db update
+        commit-message: Apply browserslist db update
         branch: actions/update-browserslist-db
         delete-branch: true
