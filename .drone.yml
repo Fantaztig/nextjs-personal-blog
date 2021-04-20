@@ -7,7 +7,6 @@ steps:
   commands:
   - npm install
   - npm run format:check
-  - npm test
 - name: export
   image: node
   commands:
@@ -22,6 +21,7 @@ steps:
   settings:
     hosts: 
       - ruuk.io
+    port: 6113
     source: ./out/*
     target: /var/www/ruuk.io
     recursive: true
