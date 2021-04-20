@@ -1,0 +1,22 @@
+name: browserslist-update
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  browserslist-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Update browserslist db
+      run: npx browserslist@latest --update-db
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply browserslist db update
