@@ -21,6 +21,7 @@ steps:
   settings:
     hosts: 
       - ruuk.io
+    port: 6113
     source: ./out/*
     target: /var/www/ruuk.io
     recursive: true
